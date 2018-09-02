@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     let finalpingembed = new Discord.RichEmbed()
     .setTitle("Done!")
-    .setDescription(`The current ping of this server is: ${bot.ping.toLocaleString() -23} ms`)
+    .setDescription("The current ping of this server is: " + Math.round(bot.ping.toLocaleString()) + "ms")
     .setColor("#0000ff")
 
     message.channel.send(pingembed).then(function(m) {
