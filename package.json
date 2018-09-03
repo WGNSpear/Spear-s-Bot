@@ -12,6 +12,6 @@
     "discord.js": "^11.3.0",
     "ms": "^2.1.1",
     "superagent": "^3.8.3",
-    "memejsfork": "1.0.0"
+    "memejsfork": "1.0.3"
   }
 }
