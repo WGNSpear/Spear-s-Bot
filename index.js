@@ -22,7 +22,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-  bot.user.setActivity("Spear fail", {type: "WATCHING"});
+  bot.user.setActivity(`${bot.guilds.size} Servers!`, {type: "WATCHING"});
 
 });
 
@@ -39,6 +39,7 @@ bot.on("message", async message => {
   }
 
   let prefix = prefixes[message.guild.id].prefixes;
+  if (!message.content.startsWith(prefix)) return;
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
@@ -47,4 +48,6 @@ bot.on("message", async message => {
 
 });
 
+//bot.login(botconfig.token);
 bot.login(process.env.BOT_TOKEN);
+//if (!message.content.startsWith(prefix)) return;

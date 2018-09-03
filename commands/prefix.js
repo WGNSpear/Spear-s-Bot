@@ -3,10 +3,12 @@ const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 
-  if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply("You dont have permission to do this!");
-  if(!args[0] || args[0 == "help"]) return message.reply("Usage: !prefix <desired prefix here>");
-
   let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
+  let prefix = prefixes[message.guild.id].prefixes;
+
+  if(!message.member.hasPermission("MANAGE_GUILD")) return message.reply("You dont have permission to do this!");
+  if(!args[0] || args[0 == "help"]) return message.reply("Usage: " + prefix + "prefix <desired prefix here>");
+
 
   prefixes[message.guild.id] = {
     prefixes: args[0]
